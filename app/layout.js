@@ -142,6 +142,26 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         />
+
+        <Script id="grow-me-initializer" strategy="afterInteractive">
+          {`
+          !(function () {
+            window.growMe ||
+              ((window.growMe = function (e) {
+                window.growMe._.push(e);
+              }),
+              (window.growMe._ = []));
+          })();
+        `}
+        </Script>
+
+        <Script
+          id="grow-me-external"
+          strategy="afterInteractive"
+          src="https://faves.grow.me/main.js"
+          defer
+          data-grow-faves-site-id="U2l0ZTo2MjZhODQwYS0wYjJkLTQzMzUtOTk5Yi04ZjMzM2E5NmViM2M="
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
