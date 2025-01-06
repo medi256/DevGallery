@@ -1,0 +1,27 @@
+{
+  "name": "instagram",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.46.2",
+    "firebase": "^11.0.2",
+    "next": "14.2.18",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-particles": "^2.12.2",
+    "react-window": "^1.8.11",
+    "three": "^0.172.0",
+    "tsparticles": "^3.7.1",
+    "vanta": "^0.5.24"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.18"
+  }
+}
