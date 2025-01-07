@@ -1,6 +1,5 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Script from "next/script";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -17,6 +16,7 @@ const geistMono = localFont({
 
 export const metadata = {
   title: "DevGallery | Your Programming Gallery",
+
   description:
     "DevGallery is your go-to resource for programming tips, roadmaps, and tutorials. Learn about JavaScript, Python, HTML, CSS, Java, and more. Perfect for developers of all levels.",
   keywords: [
@@ -102,12 +102,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics */}
         <Script
           id="google-analytics-external"
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-SL6DSLH2WN"
         />
+
+        {/* Initialize gtag */}
         <Script id="google-analytics-inline" strategy="afterInteractive">
           {`
           window.dataLayer = window.dataLayer || [];
@@ -115,22 +116,6 @@ export default function RootLayout({ children }) {
           gtag('js', new Date());
           gtag('config', 'G-SL6DSLH2WN');
         `}
-        </Script>
-
-        {/* Grow Script */}
-        <Script id="grow-script" strategy="afterInteractive">
-          {`
-          !(function(){
-            window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));
-            var e=document.createElement("script");
-            (e.type="text/javascript"),
-            (e.src="https://faves.grow.me/main.js"),
-            (e.defer=!0),
-            e.setAttribute("data-grow-faves-site-id","U2l0ZTo2MjZhODQwYS0wYjJkLTQzMzUtOTk5Yi04ZjMzM2E5NmViM2M=");
-            var t=document.getElementsByTagName("script")[0];
-            t.parentNode.insertBefore(e,t);
-          })();
-          `}
         </Script>
 
         <link
@@ -156,6 +141,12 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         />
+
+        <Script id="grow-me" strategy="afterInteractive">
+          {`
+            !(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTo2MjZhODQwYS0wYjJkLTQzMzUtOTk5Yi04ZjMzM2E5NmViM2M=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();
+          `}
+        </Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
